@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1527348545 source:c:\users\alumno\desktop\set-get\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1527627885 source:c:\test\punteros-de-sabado-master\set-get\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Dato.h"
+
+1527626250 c:\test\punteros-de-sabado-master\set-get\dato.h
+
+1527626494 source:c:\test\punteros-de-sabado-master\set-get\dato.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Dato.h"
+
