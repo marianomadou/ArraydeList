@@ -1,8 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <conio.h>
-
 #include "ArrayList.h"
 #include "Employee.h"
 
@@ -17,6 +14,56 @@
 *****************************************************/
 
 
+int main()
+{
+
+    ArrayList* listaEmpleados;
+    FILE *f_empleados;
+    Employee *aux;
+
+    int len;
+    int i;
+
+     //CREO ARRAY LIST
+    listaEmpleados=al_newArrayList(); // llamo al constructor;
+    //COPIA DE ARCHIVO
+    parserEmployee(f_empleados, listaEmpleados);
+
+    len =al_len(listaEmpleados) ;//LO GENERO UNA SOLA VEZ
+
+    printf("elementos: %d", len);
+
+    for (i=0; i<len; i++ )
+    {
+         aux=(Employee*)al_get(listaEmpleados,i); //casteo a una estructura  COPIO LA DIRECCION DE MEMORIA DE LA INFO QUE QUIERO
+         printf("\n-%d-----%s, %s", aux->id, aux->lastName, aux->name);
+    }
+
+    printf("\n ORDENA");
+
+    al_sort(listaEmpleados,employee_compare,1);//COMPARA Y ORDENA
+
+//puntero a funcion (*PFUNC)
+//**IMPORTANTE* VALOR DE RETORNO Y CANTIDAD DE TIPOS DE DATO
+
+     for (i=0; i<len; i++ )
+    {
+         aux=(Employee*)al_get(listaEmpleados,i); //casteo a una estructura  COPIO LA DIRECCION DE MEMORIA DE LA INFO QUE QUIERO
+         printf("\n-%d-----%s, %s", aux->id, aux->lastName, aux->name);
+    }
+
+    printf("\n");
+    printf("\n");
+
+
+  //  printf("\n AGREGAR UN EMPLEADO");
+
+  // al_add(listaEmpleados,(Employee*)employee_new());
+
+
+    return 0;
+}
+/*
 int main()
 {
 
@@ -55,7 +102,7 @@ int main()
     /*al_clear(empleados);*/
 
 
-     printf("hay %d elementos\n\n", al_len(empleados));
+     /*printf("hay %d elementos\n\n", al_len(empleados));
 
     for (int i=0; i<al_len(empleados);i++)
     {
@@ -66,3 +113,4 @@ int main()
 
     return 0;
 }
+*/

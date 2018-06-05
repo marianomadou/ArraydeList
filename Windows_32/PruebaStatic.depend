@@ -62,3 +62,24 @@
 	"ArrayList.h"
 	"Employee.h"
 
+1527878590 source:c:\users\administrador\downloads\apuntes tecnicatura\pruebas en c\array_list\windows_32\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"Employee.h"
+
+1527878590 c:\users\administrador\downloads\apuntes tecnicatura\pruebas en c\array_list\windows_32\arraylist.h
+
+1528222059 c:\users\administrador\downloads\apuntes tecnicatura\pruebas en c\array_list\windows_32\employee.h
+
+1528222032 source:c:\users\administrador\downloads\apuntes tecnicatura\pruebas en c\array_list\windows_32\employee.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"Employee.h"
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	"ArrayList.h"
+	"Employee.h"
+
