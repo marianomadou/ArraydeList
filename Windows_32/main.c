@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 #include "ArrayList.h"
 #include "Employee.h"
 
@@ -16,101 +17,85 @@
 
 int main()
 {
-
-    ArrayList* listaEmpleados;
-    FILE *f_empleados;
-    Employee *aux;
-
-    int len;
-    int i;
-
-     //CREO ARRAY LIST
-    listaEmpleados=al_newArrayList(); // llamo al constructor;
-    //COPIA DE ARCHIVO
-    parserEmployee(f_empleados, listaEmpleados);
-
-    len =al_len(listaEmpleados) ;//LO GENERO UNA SOLA VEZ
-
-    printf("elementos: %d", len);
-
-    for (i=0; i<len; i++ )
-    {
-         aux=(Employee*)al_get(listaEmpleados,i); //casteo a una estructura  COPIO LA DIRECCION DE MEMORIA DE LA INFO QUE QUIERO
-         printf("\n-%d-----%s, %s", aux->id, aux->lastName, aux->name);
-    }
-
-    printf("\n ORDENA");
-
-    al_sort(listaEmpleados,employee_compare,1);//COMPARA Y ORDENA
-
-//puntero a funcion (*PFUNC)
-//**IMPORTANTE* VALOR DE RETORNO Y CANTIDAD DE TIPOS DE DATO
-
-     for (i=0; i<len; i++ )
-    {
-         aux=(Employee*)al_get(listaEmpleados,i); //casteo a una estructura  COPIO LA DIRECCION DE MEMORIA DE LA INFO QUE QUIERO
-         printf("\n-%d-----%s, %s", aux->id, aux->lastName, aux->name);
-    }
-
-    printf("\n");
-    printf("\n");
-
-
-  //  printf("\n AGREGAR UN EMPLEADO");
-
-  // al_add(listaEmpleados,(Employee*)employee_new());
-
-
-    return 0;
-}
-/*
-int main()
-{
-
     ArrayList* empleados;
-
     Employee* aux;
-
     empleados=al_newArrayList();
+
+    int id;
+    char nombre[50];
+    int len;
+    int j;
 
     Employee* e;
     e=(Employee*) malloc(sizeof(Employee));
     e->id=5;
     strcpy(e->name, "Juan");
+    strcpy(e->lastName, "Cantaro");
     al_add(empleados, e);
 
     Employee* e2;
-
     e2=(Employee*) malloc(sizeof(Employee));
     e2->id=6;
     strcpy(e2->name, "Luis");
+    strcpy(e2->lastName, "Rodriguez");
     al_add(empleados, e2);
 
 
-    printf("hay %d elementos\n\n", al_len(empleados));
+    Employee* e3;
+    e3=(Employee*) malloc(sizeof(Employee));
+    e3->id=8;
+    strcpy(e3->name, "Adelfa");
+    strcpy(e3->lastName, "Gonzalez");
+//fin empleados hardcore
 
-    for (int i=0; i<al_len(empleados);i++)
-    {
-        aux= (Employee*)al_get(empleados,i);
-        printf("%d -- %s\n", aux->id, aux->name);
-    }
+
+    parserEmployee("data2.csv",empleados);//parsear empleados
 
     getche();
 
-    al_push(empleados, 1, e);
+    printf("hay %d elementos\n\n", al_len(empleados));//mostrar empleados
+    employees_print_all(empleados);
+    printf("\n-------------------------------\n");
 
-    /*al_clear(empleados);*/
+    getche();
+    al_push(empleados, 0, e3);//hago push en la posicion 1 del empleado e3
+    printf("hay %d elementos\n\n", al_len(empleados));
+    employees_print_all(empleados);
+    printf("\n-------------------------------\n");
 
 
-     /*printf("hay %d elementos\n\n", al_len(empleados));
+    getche();
+    al_sort(empleados,employee_compareById,1);//ordena por Id
+    printf("hay %d elementos ORDENADOS POR ID\n\n", al_len(empleados));
+    employees_print_all(empleados);
+    printf("\n-------------------------------\n");
+
+
+    getche();
+    al_sort(empleados,employee_compareByName,1);//ordena por Nombre
+    printf("hay %d elementos ORDENADOS POR NOMBRE\n\n", al_len(empleados));
+    employees_print_all(empleados);
+    printf("\n-------------------------------\n");
+
+    getche();
+    al_remove(empleados, 0);//borra un elemento de la lista
+    printf("hay %d elementos, DESPUES DE BORRAR 1 ELEMENTO\n\n", al_len(empleados));
+
+    employees_print_all(empleados);
+    printf("\n-------------------------------\n");
+
+
+    getche();
+    al_clear(empleados);//borra TODOS LOS EMPLEADOS DEL ARRAYLIST
+    printf("hay %d elementos DESPUES DE BORRAR TODOS\n\n", al_len(empleados));
 
     for (int i=0; i<al_len(empleados);i++)
     {
         aux= (Employee*)al_get(empleados,i);
         printf("%d -- %s\n", aux->id, aux->name);
     }
+    printf("\n-------------------------------\n");
 
 
     return 0;
 }
-*/

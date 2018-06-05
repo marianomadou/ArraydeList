@@ -26,10 +26,14 @@ struct
 
 
 int employee_compare(void* pEmployeeA,void* pEmployeeB);
+int employee_compareById(void* pEmployeeA,void* pEmployeeB);
 void employee_print(Employee* this);
+void employees_print_all(ArrayList* pArrayListEmployee);
 Employee* employee_new(void);
 void employee_delete(Employee* this);
 int employee_setId(Employee* this, int id);
 int employee_getId(Employee* this);
-int employee_compare2(void* pEmployeeA,void* pEmployeeB);
+char* employee_getName(Employee* this);
+void employees_sort(ArrayList* pArrayListEmployee, int orden);
+int employee_compareByName(void* pEmployeeA,void* pEmployeeB);
 #endif // _EMPLOYEE_H
