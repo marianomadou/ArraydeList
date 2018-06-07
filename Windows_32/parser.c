@@ -20,6 +20,7 @@ int parserEmployee(char nombreArchivo[], ArrayList* pArrayListEmployee)
         printf("no se encontro el archivo");
         exit(EXIT_FAILURE);
     }
+    r = fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n",var1,var2,var3,var4);
     do
     {
         aux = (Employee*) malloc(sizeof(Employee));
