@@ -1,14 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "ArrayList.h"
-#include "Employee.h"
-
-
-#include <stdio.h>
-#include <stdlib.h>
 #include"string.h"
 #include "ArrayList.h"
 #include "Employee.h"
+#include "input.h"
 
 
 int employee_compare(void* pEmployeeA,void* pEmployeeB)
@@ -64,7 +59,6 @@ void employee_print(Employee* this)
 
 }
 
-
 void employees_print_all(ArrayList* pArrayListEmployee)
 {
   Employee* aux;
@@ -83,7 +77,6 @@ void employees_print_all(ArrayList* pArrayListEmployee)
   }
 }
 
-
 void employees_sort(ArrayList* pArrayListEmployee, int orden)
 {
 
@@ -91,11 +84,30 @@ void employees_sort(ArrayList* pArrayListEmployee, int orden)
 
 }
 
+void employees_add(ArrayList* pArrayListEmployee)
+{
+
+ Employee* NuevoEmpleado = employee_new();
+
+ if(NuevoEmpleado !=NULL)
+ {
+     getStringletras("Ingresar Nombre: ",NuevoEmpleado->name, 1, 25);
+     getStringletras("Ingresar Apellido: ",NuevoEmpleado->lastName, 1, 25);
+     NuevoEmpleado->isEmpty=1;
+     NuevoEmpleado->id=pArrayListEmployee->size;
+
+     al_add(pArrayListEmployee,NuevoEmpleado);
+
+ }
+
+}
 
 Employee* employee_new(void)
 {
 
-    Employee* returnAux = (Employee*)malloc(sizeof(Employee));
+    Employee* returnAux = NULL;
+
+    returnAux =(Employee*)malloc(sizeof(Employee));
 
     return returnAux;
 
@@ -103,28 +115,30 @@ Employee* employee_new(void)
 
 void employee_delete(Employee* this)
 {
-    this->isEmpty=0;
+
+
 }
 
 int employee_setId(Employee* this, int id)
 {
-    int aux = 0;
-    if(this!=NULL)
-    {
-        this->id = 0;
-        aux = 1;
-    }
 
-    return aux;
+    return 0;
+
 }
-
-
 
 int employee_getId(Employee* this)
 {
 
-    return 0;
+    int id;
 
+    id = (int) malloc(sizeof(int));
+
+    if(this!=NULL)
+    {
+        id=this->id;
+    }
+
+    return id;
 }
 
 char* employee_getName(Employee* this)
@@ -132,14 +146,28 @@ char* employee_getName(Employee* this)
 
     char* texto;
 
-    texto = (char*) malloc(sizeof(char));
+    texto = (char*)malloc(sizeof(char)*50);
 
 
     if(this!=NULL)
     {
-        strcpy(this->name,texto);
+        strcpy(texto,this->name);
 
     }
 
     return texto;
 }
+
+int employee_SetName(Employee* this, char* texto)
+{
+    int retorno =0;
+    if(this!=NULL)
+    {
+        strcpy(this->name,texto);
+        retorno =1;
+
+    }
+
+    return retorno;
+}
+

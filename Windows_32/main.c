@@ -3,6 +3,7 @@
 #include <conio.h>
 #include "ArrayList.h"
 #include "Employee.h"
+#include "input.h"
 
 /****************************************************
     Menu:
@@ -18,6 +19,56 @@
 int main()
 {
     ArrayList* empleados;
+
+
+    empleados= al_newArrayList();
+    ArrayList* subempleados;
+    subempleados= al_newArrayList();
+
+
+
+     char seguir='s';
+     int opcion;
+
+
+    while(seguir=='s')
+    {
+        printf("1. Parse del archivo data.csv\n");
+        printf("2. Listar Empleados\n");
+        printf("3. Ordenar por nombre\n");
+        printf("4. Agregar un elemento\n");
+        printf("5. Elimina un elemento\n");
+        printf("6. Listar Empleados (Desde/Hasta)\n");
+        printf("7. Salir\n");
+
+        opcion = IngresarEntero("\nIngrese una OPCION\n", 1, 5);
+
+        switch(opcion)
+        {
+            case 1:
+                parserEmployee("data.csv",empleados);
+                break;
+            case 2:
+                employees_print_all(empleados);
+                break;
+            case 3:
+                al_sort(empleados,employee_compareByName,1);//ordena por Nombre
+               break;
+            case 4:
+                employees_add(empleados);
+                break;
+            case 5:
+               break;
+            case 6:
+                break;
+            case 7:
+                seguir = 'n';
+                break;
+        }
+}
+
+
+    /*ArrayList* empleados;
     Employee* aux;
     empleados=al_newArrayList();
 
@@ -94,7 +145,7 @@ int main()
         aux= (Employee*)al_get(empleados,i);
         printf("%d -- %s\n", aux->id, aux->name);
     }
-    printf("\n-------------------------------\n");
+    printf("\n-------------------------------\n");*/
 
 
     return 0;

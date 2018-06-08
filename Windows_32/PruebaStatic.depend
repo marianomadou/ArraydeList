@@ -83,3 +83,43 @@
 	"ArrayList.h"
 	"Employee.h"
 
+1528458245 source:c:\users\mariano\desktop\tecnicatura-utn\programacion y laboratorio i\ejercicios&tp's\arraydelist-master\windows_32\employee.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	"ArrayList.h"
+	"Employee.h"
+	"input.h"
+
+1528406288 c:\users\mariano\desktop\tecnicatura-utn\programacion y laboratorio i\ejercicios&tp's\arraydelist-master\windows_32\arraylist.h
+
+1528457118 c:\users\mariano\desktop\tecnicatura-utn\programacion y laboratorio i\ejercicios&tp's\arraydelist-master\windows_32\employee.h
+
+1528457943 source:c:\users\mariano\desktop\tecnicatura-utn\programacion y laboratorio i\ejercicios&tp's\arraydelist-master\windows_32\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"ArrayList.h"
+	"Employee.h"
+	"input.h"
+
+1528458245 source:c:\users\mariano\desktop\tecnicatura-utn\programacion y laboratorio i\ejercicios&tp's\arraydelist-master\windows_32\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	"ArrayList.h"
+	"Employee.h"
+	"input.h"
+
+1528457831 source:c:\users\mariano\desktop\tecnicatura-utn\programacion y laboratorio i\ejercicios&tp's\arraydelist-master\windows_32\input.c
+	"input.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+
+1528457897 c:\users\mariano\desktop\tecnicatura-utn\programacion y laboratorio i\ejercicios&tp's\arraydelist-master\windows_32\input.h
+
